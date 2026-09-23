@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="TaskPaneApp">
+  <Id>5b1e6f0a-3c2d-4e8f-9a71-2d4c6b8e0f13</Id>
+  <Version>0.3.0.0</Version>
+  <ProviderName>IUSG Congress</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Bylaws Amender"/>
+  <Description DefaultValue="Previews an enacted IUSG bill against the Revised Bylaws, and (from version 0.4) applies it as tracked changes."/>
+  <IconUrl DefaultValue="https://lwssti.github.io/bylaws-amender/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://lwssti.github.io/bylaws-amender/assets/icon-64.png"/>
+  <SupportUrl DefaultValue="https://lwssti.github.io/bylaws-amender/taskpane.html"/>
+  <AppDomains>
+    <AppDomain>https://lwssti.github.io</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Document"/>
+  </Hosts>
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="WordApi" MinVersion="1.3"/>
+    </Sets>
+  </Requirements>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://lwssti.github.io/bylaws-amender/taskpane.html"/>
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="Document">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title resid="BA.GetStarted.Title"/>
+            <Description resid="BA.GetStarted.Description"/>
+            <LearnMoreUrl resid="BA.Taskpane.Url"/>
+          </GetStarted>
+          <FunctionFile resid="BA.Commands.Url"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="BA.Group">
+                <Label resid="BA.Group.Label"/>
+                <Icon>
+                  <bt:Image size="16" resid="BA.Icon.16"/>
+                  <bt:Image size="32" resid="BA.Icon.32"/>
+                  <bt:Image size="80" resid="BA.Icon.80"/>
+                </Icon>
+                <Control xsi:type="Button" id="BA.OpenButton">
+                  <Label resid="BA.Button.Label"/>
+                  <Supertip>
+                    <Title resid="BA.Button.Label"/>
+                    <Description resid="BA.Button.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="BA.Icon.16"/>
+                    <bt:Image size="32" resid="BA.Icon.32"/>
+                    <bt:Image size="80" resid="BA.Icon.80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>BylawsAmender</TaskpaneId>
+                    <SourceLocation resid="BA.Taskpane.Url"/>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <bt:Images>
+        <bt:Image id="BA.Icon.16" DefaultValue="https://lwssti.github.io/bylaws-amender/assets/icon-16.png"/>
+        <bt:Image id="BA.Icon.32" DefaultValue="https://lwssti.github.io/bylaws-amender/assets/icon-32.png"/>
+        <bt:Image id="BA.Icon.80" DefaultValue="https://lwssti.github.io/bylaws-amender/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="BA.Commands.Url" DefaultValue="https://lwssti.github.io/bylaws-amender/commands.html"/>
+        <bt:Url id="BA.Taskpane.Url" DefaultValue="https://lwssti.github.io/bylaws-amender/taskpane.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="BA.Group.Label" DefaultValue="Bylaws"/>
+        <bt:String id="BA.Button.Label" DefaultValue="Bylaws Amender"/>
+        <bt:String id="BA.GetStarted.Title" DefaultValue="Bylaws Amender is ready"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="BA.Button.Tooltip" DefaultValue="Open the Bylaws Amender to preview an enacted bill against these bylaws."/>
+        <bt:String id="BA.GetStarted.Description" DefaultValue="Open the bylaws, then choose Home, Bylaws Amender."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
